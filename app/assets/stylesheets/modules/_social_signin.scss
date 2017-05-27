@@ -41,6 +41,27 @@
     }
   }
 
+  .weibo {
+    background-color: $weibo;
+    &:hover {
+      background-color: darken($weibo, 10%);
+    }
+  }
+
+  .qq {
+    background-color: $qq;
+    &:hover {
+      background-color: darken($qq, 10%);
+    }
+  }
+
+  .weixin {
+    background-color: $weixin;
+    &:hover {
+      background-color: darken($weixin, 10%);
+    }
+  }
+
   i.fa {
     margin-right: 13px;
   }
