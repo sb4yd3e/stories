@@ -4,6 +4,7 @@
     <div class="heading-container">
       <% if admin_signed_in? %>
         <%= feature_tag_button_for(@dashboard.tag) %>
+        <%= delete_tag_button_for(@dashboard.tag) %>
       <% else %>
         <%= follow_tag_button_for(@dashboard.tag) %>
       <% end %>

@@ -26,6 +26,10 @@ module ApplicationHelper
     end
   end
 
+  def delete_tag_button_for(tag)
+    render partial: 'admin/delete_tag_button', locals: { tag: tag }
+  end
+
   def feature_post_button_for(post)
     if post.featured?
       render partial: 'admin/unfeature_post_button', locals: { post: post }
