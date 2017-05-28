@@ -1,0 +1,12 @@
+<div class="col-md-6 col-md-offset-1">
+  <h1>Tags</h1>
+  <div class="tags-wrapper">
+    <% @tags.each do |tag| %>
+      <%= render partial: 'tags/tag', locals: { tag: tag } %>
+    <% end %>
+  </div>
+  <%= form_for @tag, url: { controller: "admin/tags", action: "create" }, remote: true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+</div>
