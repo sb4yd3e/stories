@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: [:show]
     resources :featured_tags, only: [:create, :destroy]
     resources :featured_posts, only: [:create, :destroy]
+    resources :tags
   end
 
   namespace :api do
