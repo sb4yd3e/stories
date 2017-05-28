@@ -1,0 +1,26 @@
+var TagEdit = {
+  init: function() {
+    /*** Simply return if it's not User profile edit page ***/
+    if (!$('.tag, .show').length > 0) {
+      return;
+    }
+    $('.edit-tag').on('click', function() {
+      $('.edit-tag-form').show();
+    });
+  },
+
+  readURL: function(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#change-avatar').attr('style', "background-image: url('" + e.target.result + "')");
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+}
+
+$(document).ready( TagEdit.init );
+$(document).on( 'page:load', TagEdit.init );

@@ -14,6 +14,15 @@ class Admin::TagsController < ApplicationController
     end
   end
 
+  def update
+    @tag = Tag.find(params[:id])
+    @tag.update(tag_params)
+    respond_to do |format|
+      format.html { redirect_to admin_tags_url }
+      format.js
+    end
+  end
+
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy

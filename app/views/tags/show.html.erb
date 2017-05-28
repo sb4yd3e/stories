@@ -10,7 +10,13 @@
       <% end %>
       <small class="heading-prefix">Tagged in</small>
       <h3 class="heading-title"><%= @dashboard.tag.name %></h3>
-
+      <% if admin_signed_in? %>
+        <button class="edit-tag">Edit Tag Name</button>
+        <%= form_for @tag, url: admin_tag_path(@tag), method: :put, html: { class: 'edit-tag-form', style: 'display: none;' }, remote: true do |f| %>
+          <%= f.text_field :name %>
+          <%= f.submit "Save" %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="tag-followers-list">
