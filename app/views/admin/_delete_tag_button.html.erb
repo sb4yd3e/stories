@@ -1,0 +1,2 @@
+<%= link_to "Delete", admin_featured_tags_path(tag_id: tag.id), method: :delete,
+    data: { confirm: "#{tag.taggings.count} posts and #{tag.interests.count} users linked to this tag. Are you sure?" }, class: 'button red-border-button pull-right' %>
