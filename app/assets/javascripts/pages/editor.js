@@ -34,7 +34,10 @@ var Editor = {
     var my_taggle = new Taggle('js-taggle', {
       duplicateTagClass: 'bounce',
       tags: tags,
-      preserveCase: true
+      preserveCase: true,
+      onBeforeTagAdd: function() {
+        return false;
+      }
     });
 
     // FIXME: is there a better way to do this?
