@@ -40,6 +40,8 @@ var Editor = {
       }
     });
 
+    var tag_arrary = [];
+
     // FIXME: is there a better way to do this?
     $('[data-behavior="publish-button"').hover(function() {
       $('#post_all_tags').val(my_taggle.getTagValues());
@@ -71,6 +73,15 @@ var Editor = {
 
     $('.publish-dropdown').on('click', function(e) {
       e.stopPropagation();
+    });
+
+    $('.taggle').on('click', function () {
+      $('.taggle_list').append(this);
+      tag_arrary = [];
+      $('.post-tags-list li').each(function() {
+        tag_arrary.push($(this).text());
+        $('#post_all_tags').val(tag_arrary);
+      })
     });
 
   }, 
