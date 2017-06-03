@@ -5,7 +5,7 @@
     <% end %>
 
     <div class="pull-right">
-      <%= render partial: 'posts/social_share', locals: { post: @post } %>
+      <%= render partial: 'posts/cn_share', locals: { post: @post } %>
     </div>
     <%= render 'post_metadata', post: @post %>
 
@@ -60,7 +60,7 @@
       </div>
     <% end %>
   </div>
-</div> 
+</div>
 
 <div class="post-show-footer row" data-animation="fadeInUp-fadeOutDown">
   <% if @related_posts.any? %>
