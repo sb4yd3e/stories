@@ -1,0 +1,33 @@
+---
+pid: 15647
+config: !ruby/object:Puma::Configuration
+  cli_options: 
+  conf: 
+  options:
+    :min_threads: 5
+    :max_threads: 5
+    :quiet: false
+    :debug: false
+    :binds:
+    - tcp://0.0.0.0:80
+    - unix:///root/stories/shared/sockets/puma.sock
+    :workers: 2
+    :daemon: false
+    :mode: :http
+    :worker_timeout: 60
+    :worker_boot_timeout: 60
+    :worker_shutdown_timeout: 30
+    :remote_address: :socket
+    :config_file: config/puma.rb
+    :preload_app: true
+    :rackup: config.ru
+    :environment: development
+    :redirect_stdout: "/root/stories/shared/log/puma.stdout.log"
+    :redirect_stderr: "/root/stories/shared/log/puma.stderr.log"
+    :redirect_append: true
+    :pidfile: "/root/stories/shared/pids/puma.pid"
+    :state: "/root/stories/shared/pids/puma.state"
+    :control_url: unix:///tmp/puma-status-1496197367182-15647
+    :control_url_temp: "/tmp/puma-status-1496197367182-15647"
+    :control_auth_token: af26627f986283623d3248718560abda
+    :tag: stories
