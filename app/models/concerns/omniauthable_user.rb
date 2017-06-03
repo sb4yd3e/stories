@@ -42,6 +42,39 @@ module OmniauthableUser
       user
     end
 
+    def self.find_or_create_from_qq_omniauth(auth)
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user.remote_avatar_url = auth.info.image
+      user.update(
+        username: auth.info.name,
+        email: "#{SecureRandom.hex}#{auth.info.email}",
+        password: Devise.friendly_token[0, 20]
+      )
+      user
+    end
+
+    def self.find_or_create_from_wechat_omniauth(auth)
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user.remote_avatar_url = auth.info.image
+      user.update(
+        username: auth.info.name,
+        email: "#{SecureRandom.hex}#{auth.info.email}",
+        password: Devise.friendly_token[0, 20]
+      )
+      user
+    end
+
+    def self.find_or_create_from_weibo_omniauth(auth)
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user.remote_avatar_url = auth.info.image
+      user.update(
+        username: auth.info.name,
+        email: "#{SecureRandom.hex}#{auth.info.email}",
+        password: Devise.friendly_token[0, 20]
+      )
+      user
+    end
+
     def self.new_with_session(params, session)
       if session["devise.user_attributes"]
         new(session["devise.user_attributes"]) do |user|
