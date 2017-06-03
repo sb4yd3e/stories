@@ -28,6 +28,13 @@
               <div class="clearfix" data-behavior="tags" data-tags="<%= @post.all_tags %>">
                 <div id="js-taggle" style="position: relative;" data-behavior="autosave"></div>
               </div>
+              <div class="clearfix">
+                <ul class="taggle_list available-tags-list">
+                  <% Tag.where(featured: true).each do |tag| %>
+                    <li class="taggle available-tag"><span class="taggle-text"><%= tag.name %></span></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
             <hr />
             <div>
@@ -40,7 +47,7 @@
         </li>
         <%= render 'layouts/avatar_dropdown' %>
       </ul>
-    </div> 
+    </div>
   </div>
 </nav>
 

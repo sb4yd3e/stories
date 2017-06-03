@@ -34,7 +34,10 @@ var Editor = {
     var my_taggle = new Taggle('js-taggle', {
       duplicateTagClass: 'bounce',
       tags: tags,
-      preserveCase: true
+      preserveCase: true,
+      onTagRemove: function(event, tag) {
+        $('.available-tags-list').append('<li class="taggle available-tag"><span class="taggle-text">' + tag + '</span></li>');
+      }
     });
 
     // FIXME: is there a better way to do this?
@@ -61,6 +64,12 @@ var Editor = {
                   );
     }, 500);
 
+    // 增加tag
+    $('.available-tag').on('click', function() {
+      $(this).hide();
+      my_taggle.add($(this).find('span').text());
+    });
+
     /*** Form submit ***/
     $('[data-behavior="publish-button"]').on('click', function() {
       $('.editor-form').submit();
@@ -70,7 +79,7 @@ var Editor = {
       e.stopPropagation();
     });
 
-  }, 
+  },
 
   readURL: function(input) {
     if (input.files && input.files[0]) {
