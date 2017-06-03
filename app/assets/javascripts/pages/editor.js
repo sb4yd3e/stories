@@ -28,20 +28,10 @@ var Editor = {
     });
 
     // preload tags if its edit.
-    var tag_string = $('[data-behavior="tags"]').data("tags");
-    var tags = tag_string.length > 0 ? tag_string.split(', ') : ['Story', 'Music'];
+    var tag_string = $('.post-tags-list').data("tags");
+    var tags = tag_string.length > 0 ? tag_string.split(', ') : [];
 
-    var my_taggle = new Taggle('js-taggle', {
-      duplicateTagClass: 'bounce',
-      tags: tags,
-      preserveCase: true,
-      onBeforeTagAdd: function() {
-        return false;
-      }
-    });
-
-    var tag_arrary = [];
-
+    console.log(tags);
     // FIXME: is there a better way to do this?
     $('[data-behavior="publish-button"').hover(function() {
       $('#post_all_tags').val(my_taggle.getTagValues());
@@ -77,14 +67,13 @@ var Editor = {
 
     $('.taggle').on('click', function () {
       $('.taggle_list').append(this);
-      tag_arrary = [];
       $('.post-tags-list li').each(function() {
-        tag_arrary.push($(this).text());
-        $('#post_all_tags').val(tag_arrary);
+        tags.push($(this).text());
+        $('#post_all_tags').val(tags);
       })
     });
 
-  }, 
+  },
 
   readURL: function(input) {
     if (input.files && input.files[0]) {

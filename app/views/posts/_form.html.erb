@@ -18,14 +18,14 @@
   </div>
 
   <div class="form-group">
-    <%= f.text_area :body, class: 'medium-editable', data: { behavior: "autosave" } %> 
+    <%= f.text_area :body, class: 'medium-editable', data: { behavior: "autosave" } %>
   </div>
 
   <div class="form-group post-tags">
     <p>Tags</p>
-    <ul class="taggle_list post-tags-list">
+    <ul class="taggle_list post-tags-list" data-tags="<%= @post.all_tags %>">
       <% @post.tags.each do |tag| %>
-        <% tag.name %>
+        <li class="taggle"><span class="taggle-text"><%= tag.name %></span></li>
       <% end %>
     </ul>
   </div>
