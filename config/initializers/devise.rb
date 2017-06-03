@@ -243,7 +243,7 @@ Devise.setup do |config|
   config.omniauth :twitter,       Rails.application.secrets.twitter_api_id.to_s,  Rails.application.secrets.twitter_api_secret.to_s
   config.omniauth :google_oauth2, Rails.application.secrets.google_api_id.to_s,   Rails.application.secrets.google_api_secret.to_s
 
-  config.omniauth :wechat, 'wx36fee8a5da4ac490', '1c696a70389e96785c454aa391d4d1ac'
+  config.omniauth :wechat, 'wx7120de37be935aab', '3ed460a6d9ec57dc4753fe3a760335f0'
   config.omniauth :weibo, '4178601071', '7b1cf76af84be22b54973e28f4ede4b3'
   config.omniauth :qq_connect, ENV['QQ_CONNECT_APP_KEY'], ENV['QQ_CONNECT_APP_SECRET']
 
