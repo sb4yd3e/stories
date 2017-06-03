@@ -22,19 +22,19 @@
       </li>
 
       <li class="omniauth-button">
-        <%= link_to user_omniauth_authorize_path(:facebook), class: 'button weibo' do %>
+        <%= link_to user_omniauth_authorize_path(:weibo), class: 'button weibo' do %>
           <%= icon('weibo') %>使用新浪微博登录
         <% end %>
       </li>
 
       <li class="omniauth-button">
-        <%= link_to user_omniauth_authorize_path(:facebook), class: 'button weixin' do %>
+        <%= link_to user_omniauth_authorize_path(:weichat), class: 'button weixin' do %>
           <%= icon('weixin') %>使用微信登录
         <% end %>
       </li>
 
       <li class="omniauth-button">
-        <%= link_to user_omniauth_authorize_path(:facebook), class: 'button qq' do %>
+        <%= link_to user_omniauth_authorize_path(:qq_connect), class: 'button qq' do %>
           <%= icon('qq') %>使用 QQ 登录
         <% end %>
       </li>
