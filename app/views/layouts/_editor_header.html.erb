@@ -28,6 +28,7 @@
               <div class="clearfix" data-behavior="tags" data-tags="<%= @post.all_tags %>">
                 <div id="js-taggle" style="position: relative;" data-behavior="autosave"></div>
               </div>
+              <p>选择标签</p>
               <div class="clearfix">
                 <ul class="taggle_list available-tags-list">
                   <% Tag.where(featured: true).each do |tag| %>
