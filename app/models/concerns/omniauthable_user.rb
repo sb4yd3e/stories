@@ -87,10 +87,11 @@ module OmniauthableUser
     end
 
     def self.find_or_create_from_wechat_connect_omniauth(auth)
+      Rails.logger.info auth
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.image
+      user.avatar = auth.info.headimgurl
       user.update(
-        username: auth.info.name,
+        username: auth.info.nickname,
         email: "#{SecureRandom.hex}@wechat.com",
         password: Devise.friendly_token[0, 20]
       )
