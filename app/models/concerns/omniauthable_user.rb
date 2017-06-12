@@ -65,6 +65,7 @@ module OmniauthableUser
     end
 
     def self.find_or_create_from_weibo_omniauth(auth)
+      Rails.logger.info auth
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
       user.remote_avatar_url = auth.info.image
       user.update(

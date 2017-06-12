@@ -243,7 +243,7 @@ Devise.setup do |config|
   config.omniauth :twitter,       Rails.application.secrets.twitter_api_id.to_s,  Rails.application.secrets.twitter_api_secret.to_s
   config.omniauth :google_oauth2, Rails.application.secrets.google_api_id.to_s,   Rails.application.secrets.google_api_secret.to_s
 
-  config.omniauth :wechat, 'wx24dade517beae128', '26a77f81e1b266dceab9a72753082c5d'
+  config.omniauth :wechat, 'wx24dade517beae128', '26a77f81e1b266dceab9a72753082c5d', token_params: { redirect_uri: 'http://www.jiazhangshu.com/users/auth/weibo/callback' }
   config.omniauth :weibo, '4178601071', '7b1cf76af84be22b54973e28f4ede4b3'
   config.omniauth :qq_connect, ENV['QQ_CONNECT_APP_KEY'], ENV['QQ_CONNECT_APP_SECRET']
 
