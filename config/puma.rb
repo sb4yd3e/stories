@@ -7,7 +7,7 @@ shared_dir = "#{app_dir}/shared"
 preload_app!
 
 rackup      DefaultRackup
-port        ENV['PORT']     || 80
+port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 bind "unix://#{shared_dir}/sockets/puma.sock"
 stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
