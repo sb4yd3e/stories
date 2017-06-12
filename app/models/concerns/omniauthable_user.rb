@@ -36,7 +36,7 @@ module OmniauthableUser
       user.avatar = auth.info.image
       user.update(
         username: auth.info.nickname,
-        email: "#{SecureRandom.hex}@wechat.com",
+        email: "#{SecureRandom.hex}#{auth.info.email}",
         password: Devise.friendly_token[0, 20]
       )
       user
@@ -47,7 +47,7 @@ module OmniauthableUser
       user.remote_avatar_url = auth.info.headimgurl
       user.update(
         username: auth.info.name,
-        email: "#{SecureRandom.hex}#{auth.info.email}",
+        email: "#{SecureRandom.hex}@wechat.com",
         password: Devise.friendly_token[0, 20]
       )
       user
