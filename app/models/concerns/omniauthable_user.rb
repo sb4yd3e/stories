@@ -35,19 +35,8 @@ module OmniauthableUser
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
       user.avatar = auth.info.image
       user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}#{auth.info.email}",
-        password: Devise.friendly_token[0, 20]
-      )
-      user
-    end
-
-    def self.find_or_create_from_qq_omniauth(auth)
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.image
-      user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}#{auth.info.email}",
+        username: auth.info.nickname,
+        email: "#{SecureRandom.hex}@wechat.com",
         password: Devise.friendly_token[0, 20]
       )
       user
@@ -55,7 +44,7 @@ module OmniauthableUser
 
     def self.find_or_create_from_wechat_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.image
+      user.avatar = auth.info.headimgurl
       user.update(
         username: auth.info.name,
         email: "#{SecureRandom.hex}#{auth.info.email}",
@@ -81,18 +70,6 @@ module OmniauthableUser
       user.update(
         username: auth.info.name,
         email: "#{SecureRandom.hex}@qq_connect.com",
-        password: Devise.friendly_token[0, 20]
-      )
-      user
-    end
-
-    def self.find_or_create_from_wechat_connect_omniauth(auth)
-      Rails.logger.info auth
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.headimgurl
-      user.update(
-        username: auth.info.nickname,
-        email: "#{SecureRandom.hex}@wechat.com",
         password: Devise.friendly_token[0, 20]
       )
       user
