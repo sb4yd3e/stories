@@ -12,7 +12,7 @@ gem 'omniauth-twitter', '~> 1.2'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
 
 gem 'omniauth-weibo-oauth2', '~> 0.4.2'
-gem 'omniauth-wechat-oauth2', git: 'git@github.com:yangsr/omniauth-wechat-oauth2.git'
+gem 'omniauth-wechat-oauth2', git: 'https://github.com/yangsr/omniauth-wechat-oauth2.git'
 gem 'omniauth-qq-connect', '~> 0.2.0'
 
 # Front-end
