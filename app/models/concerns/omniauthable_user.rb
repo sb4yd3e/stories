@@ -86,6 +86,17 @@ module OmniauthableUser
       user
     end
 
+    def self.find_or_create_from_wechat_connect_omniauth(auth)
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user.avatar = auth.info.image
+      user.update(
+        username: auth.info.name,
+        email: "#{SecureRandom.hex}@wechat.com",
+        password: Devise.friendly_token[0, 20]
+      )
+      user
+    end
+
     def self.new_with_session(params, session)
       if session["devise.user_attributes"]
         new(session["devise.user_attributes"]) do |user|
