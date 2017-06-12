@@ -82,7 +82,7 @@ module OmniauthableUser
       user.avatar = auth.info.image
       user.update(
         username: auth.info.name,
-        email: "#{SecureRandom.hex}#{auth.info.email}",
+        email: "#{SecureRandom.hex}@qq_connect.com",
         password: Devise.friendly_token[0, 20]
       )
       user
