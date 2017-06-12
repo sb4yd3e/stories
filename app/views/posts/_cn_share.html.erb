@@ -5,5 +5,14 @@
   <a class="jiathis_button_qzone"></a>
   <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">更多</a>
 </div>
+<script type="text/javascript" >
+var jiathis_config={
+	url: <%= post.url %>,
+	summary: <%= sanitize post.lead %>,
+	title:"#{post.title} #家长树#",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
 <!-- JiaThis Button END -->

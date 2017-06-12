@@ -106,6 +106,10 @@ class Post < ActiveRecord::Base
     words.size
   end
 
+  def url
+    "http://www.jiazhangshu.com/posts/#{id}"
+  end
+
   # Generate a lead which appears in post panel.
   # FIXME: this method needs refactoring or completely different approach
   def generate_lead!
