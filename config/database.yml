@@ -83,7 +83,5 @@ test:
 production:
   <<: *default
   database: stories_production
-  username: stories
-  password: <%= ENV['STORIES_DATABASE_PASSWORD'] %>
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
 
