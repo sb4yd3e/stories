@@ -245,7 +245,7 @@ Devise.setup do |config|
 
   config.omniauth :wechat, 'wx24dade517beae128', '26a77f81e1b266dceab9a72753082c5d', token_params: { redirect_uri: 'http://www.jiazhangshu.com/users/auth/weibo/callback' }
   config.omniauth :weibo, '4178601071', '7b1cf76af84be22b54973e28f4ede4b3'
-  config.omniauth :qq_connect, ENV['QQ_CONNECT_APP_KEY'], ENV['QQ_CONNECT_APP_SECRET']
+  config.omniauth :qq_connect, '101402127', '11bf45841ce125229cae07a33dcd9c30'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
