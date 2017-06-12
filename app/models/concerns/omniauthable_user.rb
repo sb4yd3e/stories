@@ -8,7 +8,7 @@ module OmniauthableUser
     def self.find_or_create_from_facebook_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
       unless auth.info.image.nil?
-        user.remote_avatar_url = auth.info.image.gsub('http://','https://') + '?type=large'
+        user.avatar = auth.info.image.gsub('http://','https://') + '?type=large'
       end
       user.update(
         email: "#{SecureRandom.hex}#{auth.info.email}",
@@ -21,7 +21,7 @@ module OmniauthableUser
     def self.find_or_create_from_twitter_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
       unless auth.info.image.nil?
-        user.remote_avatar_url = auth.info.image.gsub('http://', 'https://').gsub('_normal', '')
+        user.avatar = auth.info.image.gsub('http://', 'https://').gsub('_normal', '')
       end
       user.update(
         username: auth.info.name,
@@ -33,7 +33,7 @@ module OmniauthableUser
 
     def self.find_or_create_from_google_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.image
+      user.avatar = auth.info.image
       user.update(
         username: auth.info.name,
         email: "#{SecureRandom.hex}#{auth.info.email}",
@@ -44,7 +44,7 @@ module OmniauthableUser
 
     def self.find_or_create_from_qq_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.image
+      user.avatar = auth.info.image
       user.update(
         username: auth.info.name,
         email: "#{SecureRandom.hex}#{auth.info.email}",
@@ -55,7 +55,7 @@ module OmniauthableUser
 
     def self.find_or_create_from_wechat_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.image
+      user.avatar = auth.info.image
       user.update(
         username: auth.info.name,
         email: "#{SecureRandom.hex}#{auth.info.email}",
@@ -67,10 +67,10 @@ module OmniauthableUser
     def self.find_or_create_from_weibo_omniauth(auth)
       Rails.logger.info auth
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.image
+      user.avatar = auth.info.image
       user.update(
         username: auth.info.name,
-        email: "#{SecureRandom.hex}#{auth.info.email}",
+        email: "#{SecureRandom.hex}@weibo.com",
         password: Devise.friendly_token[0, 20]
       )
       user
