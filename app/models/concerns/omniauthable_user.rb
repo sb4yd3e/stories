@@ -44,8 +44,8 @@ module OmniauthableUser
 
     def self.find_or_create_from_wechat_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.headimgurl
       user.update(
+        avatar: auth.info.headimgurl,
         username: auth.info.name,
         email: "#{SecureRandom.hex}#{auth.info.email}",
         password: Devise.friendly_token[0, 20]
@@ -55,8 +55,8 @@ module OmniauthableUser
 
     def self.find_or_create_from_weibo_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.info.image
       user.update(
+        avatar: auth.info.image,
         username: auth.info.name,
         email: "#{SecureRandom.hex}@weibo.com",
         password: Devise.friendly_token[0, 20]
@@ -66,8 +66,8 @@ module OmniauthableUser
 
     def self.find_or_create_from_qq_connect_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.avatar = auth.extra.raw_info.figureurl_qq_2
       user.update(
+        avatar: auth.extra.raw_info.figureurl_qq_2,
         username: auth.info.name,
         email: "#{SecureRandom.hex}@qq_connect.com",
         password: Devise.friendly_token[0, 20]

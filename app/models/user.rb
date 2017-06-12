@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2, :weibo, :wechat, :qq_connect]
   validates :username, presence: true
-  validate :avatar_image_size
+  # validate :avatar_image_size
 
   has_many :posts, dependent: :destroy
   has_many :responses, dependent: :destroy
@@ -85,11 +85,11 @@ class User < ActiveRecord::Base
   private
 
     # Validates the size on an uploaded image.
-    def avatar_image_size
-      if avatar.size > 5.megabytes
-        errors.add(:avatar, "should be less than 5MB")
-      end
-    end
+    # def avatar_image_size
+    #   if avatar.size > 5.megabytes
+    #     errors.add(:avatar, "should be less than 5MB")
+    #   end
+    # end
 
     # Returns a string of the objects class name downcased.
     def downcased_class_name(obj)
