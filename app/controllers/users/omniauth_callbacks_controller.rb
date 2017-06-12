@@ -41,6 +41,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def weibo
+    @user = User.find_or_create_from_weibo_omniauth(auth_hash)
+
+    if @user.persisted?
+      sign_in_and_redirect @user, :event => :authentication
+      set_flash_message(:notice, :success, :kind => "Weibo") if is_navigational_format?
+    else
+      session["devise.user_attributes"] = @user.attributes
+      redirect_to new_user_registration_url
+    end
+  end
+
   def failure
     redirect_to root_path
   end
