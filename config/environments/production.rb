@@ -59,6 +59,8 @@ Rails.application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups.
+  config.logger = Logger.new('log/production.log')
+
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use Memcached as a cache store in production.
