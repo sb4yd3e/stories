@@ -39,16 +39,16 @@ module SearchableUser
   end
 
   def index_document
-    ElasticsearchIndexJob.perform_now('index', 'User', self.id)
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('index', 'User', self.id)
     self.posts.find_each do |post|
-      ElasticsearchIndexJob.perform_now('index', 'Post', post.id) if post.published?
+      ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('index', 'Post', post.id) if post.published?
     end
   end
 
   def delete_document
-    ElasticsearchIndexJob.perform_now('delete', 'User', self.id)
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('delete', 'User', self.id)
     self.posts.find_each do |post|
-      ElasticsearchIndexJob.perform_now('delete', 'Post', post.id) if post.published?
+      ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('delete', 'Post', post.id) if post.published?
     end
   end
 

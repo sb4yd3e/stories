@@ -36,11 +36,11 @@ module SearchableTag
   end
 
   def index_document
-    ElasticsearchIndexJob.perform_now('index', 'Tag', self.id)
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('index', 'Tag', self.id)
   end
 
   def delete_document
-    ElasticsearchIndexJob.perform_now('delete', 'Tag', self.id)
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('delete', 'Tag', self.id)
   end
 
   INDEX_OPTIONS =

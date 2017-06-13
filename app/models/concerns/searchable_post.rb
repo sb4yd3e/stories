@@ -58,11 +58,11 @@ module SearchablePost
   end
 
   def index_document
-    ElasticsearchIndexJob.perform_now('index', 'Post', self.id) if self.published?
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('index', 'Post', self.id) if self.published?
   end
 
   def delete_document
-    ElasticsearchIndexJob.perform_now('delete', 'Post', self.id) if self.published?
+    ElasticsearchIndexJob.set(wait: 3.seconds).perform_later('delete', 'Post', self.id) if self.published?
   end
 
   INDEX_OPTIONS =
