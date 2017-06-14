@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2, :weibo, :wechat, :qq_connect]
+         :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2, :weibo, :wechat_open, :wechat_open_qr, :qq_connect]
   validates :username, presence: true
   # validate :avatar_image_size
 
