@@ -43,7 +43,7 @@ module OmniauthableUser
     end
 
     def self.find_or_create_from_wechat_open_omniauth(auth)
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user = where(provider: 'wechat', uid: auth.uid).first_or_create
       user.remote_avatar_url = auth.info.headimgurl
       user.update(
         username: auth.info.name,
@@ -54,7 +54,7 @@ module OmniauthableUser
     end
 
     def self.find_or_create_from_wechat_open_qr_omniauth(auth)
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user = where(provider: 'wechat', uid: auth.uid).first_or_create
       user.remote_avatar_url = auth.info.headimgurl
       user.update(
         username: auth.info.name,
