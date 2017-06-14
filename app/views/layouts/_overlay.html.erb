@@ -12,10 +12,12 @@
       <li class="omniauth-button">
         <% if browser.wechat? %>
           <%= link_to user_omniauth_authorize_path(:wechat_open), class: 'button weixin' do %>
+            <%= icon('weixin') %>使用微信登录
+          <% end %>
         <% else %>
           <%= link_to user_omniauth_authorize_path(:wechat_open_qr), class: 'button weixin' do %>
-        <% end %>
-          <%= icon('weixin') %>使用微信登录
+            <%= icon('weixin') %>使用微信登录
+          <% end %>
         <% end %>
       </li>
 
