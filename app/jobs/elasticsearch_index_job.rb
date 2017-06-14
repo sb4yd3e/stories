@@ -21,5 +21,7 @@ class ElasticsearchIndexJob < ActiveJob::Base
       client.delete index: searchable_class.underscore.downcase.pluralize, 
                     type: searchable_class.underscore.downcase, 
                     id: searchable_id
+    rescue Elasticsearch::Transport::Transport::Errors::NotFound
+      nil
     end
 end
