@@ -12,8 +12,11 @@ gem 'omniauth-twitter', '~> 1.2'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
 
 gem 'omniauth-weibo-oauth2', '~> 0.4.2'
-gem 'omniauth-wechat-oauth2', git: 'https://github.com/southwolf/omniauth-wechat-oauth2.git'
+gem 'omniauth-wechat-oauth2-open', git: 'https://github.com/southwolf/omniauth-wechat-oauth2-open.git'
+gem 'omniauth-wechat-oauth2-open-qr', git: 'https://github.com/southwolf/omniauth-wechat-oauth2-open-qr.git'
 gem 'omniauth-qq-connect', '~> 0.2.0'
+gem 'browser', '~> 2.4.0'
+
 
 # Front-end
 gem 'react-rails', '~> 1.10'

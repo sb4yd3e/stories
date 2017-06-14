@@ -42,7 +42,18 @@ module OmniauthableUser
       user
     end
 
-    def self.find_or_create_from_wechat_omniauth(auth)
+    def self.find_or_create_from_wechat_open_omniauth(auth)
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create
+      user.remote_avatar_url = auth.info.headimgurl
+      user.update(
+        username: auth.info.name,
+        email: "#{SecureRandom.hex}@wechat.com",
+        password: Devise.friendly_token[0, 20]
+      )
+      user
+    end
+
+    def self.find_or_create_from_wechat_open_qr_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create
       user.remote_avatar_url = auth.info.headimgurl
       user.update(

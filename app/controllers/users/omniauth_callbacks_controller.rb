@@ -53,8 +53,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def wechat
-    @user = User.find_or_create_from_wechat_omniauth(auth_hash)
+  def wechat_open
+    @user = User.find_or_create_from_wechat_open_omniauth(auth_hash)
+
+    if @user.persisted?
+      sign_in_and_redirect @user, :event => :authentication
+      set_flash_message(:notice, :success, :kind => "Wechat") if is_navigational_format?
+    else
+      session["devise.user_attributes"] = @user.attributes
+      redirect_to new_user_registration_url
+    end
+  end
+
+  def wechat_open_qr
+    @user = User.find_or_create_from_wechat_open_qr_omniauth(auth_hash)
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication
