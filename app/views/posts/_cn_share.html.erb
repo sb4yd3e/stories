@@ -6,10 +6,11 @@
   <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">更多</a>
 </div>
 <script type="text/javascript" >
-var jiathis_config={
+var jiathis_config= {
 	url: '<%= post.url %>',
 	summary: '<%= strip_tags post.lead %>',
 	title:'<%= post.title %> #家长树#',
+	pic: '<%= post.picture.url %>',
 	shortUrl:false,
 	hideMore:false
 }

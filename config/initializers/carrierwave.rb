@@ -1,7 +1,8 @@
 require 'carrierwave/orm/activerecord'
 
-# if Rails.env.production?
-#   CarrierWave.configure do |config|
+if Rails.env.production?
+  CarrierWave.configure do |config|
+    config.asset_host = ActionController::Base.asset_host
 #     config.fog_credentials = {
 #       # Configuration for Amazon S3
 #       :provider               => 'AWS',
@@ -9,5 +10,5 @@ require 'carrierwave/orm/activerecord'
 #       :aws_secret_access_key  => ENV['S3_SECRET_KEY']
 #     }
 #     config.fog_directory = ENV['S3_BUCKET']
-#   end
-# end
+  end
+end
