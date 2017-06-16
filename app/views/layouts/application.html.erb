@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="Stories">
 <head>
-  <title>Stories</title>
+  <title>
+    <%= content_for?(:title) ? yield :title : '家长树' %>
+  </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
