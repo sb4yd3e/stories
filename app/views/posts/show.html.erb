@@ -1,7 +1,9 @@
-<% if @post.picture? %>
-  <div class="post-picture-wrapper" style="display: none;">
-    <%= image_tag @post.picture.url %>
-  </div>
+<%= content_for :wechat_img do %>
+  <% if @post.picture? %>
+    <div class="post-picture-wrapper" style="display: none;">
+      <%= image_tag @post.picture.url %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= content_for :title, @post.title %>

@@ -14,6 +14,8 @@
 
 </head>
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
+  <%= yield :wechat_img %>
+
   <%= render 'layouts/overlay' unless user_signed_in? %>
   <%= react_component('UserOverlay', {}) %>
 
