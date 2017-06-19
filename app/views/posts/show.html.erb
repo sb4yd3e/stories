@@ -1,3 +1,5 @@
+<%= content_for :desc, strip_tags(@post.lead) %>
+
 <%= content_for :wechat_img do %>
   <% if @post.picture? %>
     <div class="wechat-img" style="width: 0px; height: 0px; overflow: hidden;">
