@@ -4,7 +4,7 @@
   <meta property="og:url" content="<%= @post.url %>" />
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:description" content="<%= strip_tags(@post.lead) %>" />
-  <meta property="og:image" content="<%= @post.pitcure? ? @post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>" />
+  <meta property="og:image" content="<%= @post.picture? ? @post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>" />
 <% end %>
 
 <%= content_for :wechat_img do %>
