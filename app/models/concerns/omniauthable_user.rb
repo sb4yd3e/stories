@@ -43,46 +43,50 @@ module OmniauthableUser
     end
 
     def self.find_or_create_from_wechat_open_omniauth(auth)
-      user = where(provider: 'wechat', uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.headimgurl
-      user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}@wechat.com",
-        password: Devise.friendly_token[0, 20]
-      )
+      user = where(provider: 'wechat', uid: auth.uid).first_or_create do |u|
+        u.remote_avatar_url = auth.info.headimgurl
+        u.update(
+          username: auth.info.name,
+          email: "#{SecureRandom.hex}@wechat.com",
+          password: Devise.friendly_token[0, 20]
+        )
+      end
       user
     end
 
     def self.find_or_create_from_wechat_open_qr_omniauth(auth)
-      user = where(provider: 'wechat', uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.headimgurl
-      user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}@wechat.com",
-        password: Devise.friendly_token[0, 20]
-      )
+      user = where(provider: 'wechat', uid: auth.uid).first_or_create do |u|
+        u.remote_avatar_url = auth.info.headimgurl
+        u.update(
+          username: auth.info.name,
+          email: "#{SecureRandom.hex}@wechat.com",
+          password: Devise.friendly_token[0, 20]
+        )
+      end
       user
     end
 
     def self.find_or_create_from_weibo_omniauth(auth)
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.info.image
-      user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}@weibo.com",
-        password: Devise.friendly_token[0, 20]
-      )
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
+        u.remote_avatar_url = auth.info.image
+        u.update(
+          username: auth.info.name,
+          email: "#{SecureRandom.hex}@weibo.com",
+          password: Devise.friendly_token[0, 20]
+        )
+      end
       user
     end
 
     def self.find_or_create_from_qq_connect_omniauth(auth)
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create
-      user.remote_avatar_url = auth.extra.raw_info.figureurl_qq_2
-      user.update(
-        username: auth.info.name,
-        email: "#{SecureRandom.hex}@qq_connect.com",
-        password: Devise.friendly_token[0, 20]
-      )
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
+        u.remote_avatar_url = auth.extra.raw_info.figureurl_qq_2
+        u.update(
+          username: auth.info.name,
+          email: "#{SecureRandom.hex}@qq_connect.com",
+          password: Devise.friendly_token[0, 20]
+        )
+      end
       user
     end
 
