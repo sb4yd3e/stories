@@ -113,7 +113,7 @@
 <%= wechat_config_js debug: true, api: %w(checkJsApi onMenuShareTimeline onMenuShareQZone) -%>
 <script type="application/javascript">
   wx.onMenuShareTimeline({
-    title: "<%= @post.title %>",
+    title: "<%= @post.title %> - 家长书",
     link: "<%= @post.url %>",
     imgUrl: "<%= @post.picture? ? @post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>",
     success: function () { 
