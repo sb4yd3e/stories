@@ -4,13 +4,17 @@
   <meta property="og:url" content="<%= @post.url %>" />
   <meta property="og:title" content="<%= @post.title %>" />
   <meta property="og:description" content="<%= strip_tags(@post.lead) %>" />
-  <meta property="og:image" content="<%= @post.piture? ? @post.picture.url : '' %>" />
+  <meta property="og:image" content="<%= @post.pitcure? ? @post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>" />
 <% end %>
 
 <%= content_for :wechat_img do %>
   <% if @post.picture? %>
     <div class="wechat-img" style="width: 0px; height: 0px; overflow: hidden;">
       <%= image_tag @post.picture.url %>
+    </div>
+  <% else %>
+    <div class="wechat-img" style="width: 0px; height: 0px; overflow: hidden;">
+      <%= image_tag 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>
     </div>
   <% end %>
 <% end %>
