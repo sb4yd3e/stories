@@ -109,5 +109,5 @@
 </div>
 
 <%= render partial: 'posts/metadata_bar', locals: { post: @post } %>
-<script scr="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<%= javascript_include_tag '//res.wx.qq.com/open/js/jweixin-1.2.0.js' %>
 <%= wechat_config_js debug: true, api: %w(onMenuShareTimeline onMenuShareQZone) -%>
