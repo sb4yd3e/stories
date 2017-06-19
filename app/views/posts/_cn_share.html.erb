@@ -17,12 +17,12 @@ var jiathis_config= {
 	hideMore:false
 }
 </script>
-<%= javascript_include_tag "jia" %>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
 <script type="text/javascript">
-$(".jiathis_button_weixin").off();
-$(".jiathis_button_weixin").click(function(event){
-	event.preventDefault();
-	alert("HHH");
-});
+  $(".jiathis_button_weixin").off();
+  $(".jiathis_button_weixin").click(function(event){
+	  event.preventDefault();
+	  alert("HHH");
+  });
 </script>
 <!-- JiaThis Button END -->
