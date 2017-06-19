@@ -112,7 +112,14 @@
 <%= javascript_include_tag '//res.wx.qq.com/open/js/jweixin-1.2.0.js' %>
 <%= wechat_config_js debug: true, api: %w(checkJsApi onMenuShareTimeline onMenuShareQZone) -%>
 <script type="application/javascript">
-  wx.ready(function() {
-      alert("Success");
-  });
+  wx.onMenuShareTimeline({
+    title: "<%= @post.title %>",
+    link: "<%= @post.url %>",
+    imgUrl: "<%= @post.picture? ? @post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>",
+    success: function () { 
+        alert("分享成功!");
+    },
+    cancel: function () {
+    }
+});
 </script>
