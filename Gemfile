@@ -16,6 +16,7 @@ gem 'omniauth-wechat-oauth2-open', git: 'https://github.com/southwolf/omniauth-w
 gem 'omniauth-wechat-oauth2-open-qr', git: 'https://github.com/southwolf/omniauth-wechat-oauth2-open-qr.git'
 gem 'omniauth-qq-connect', '~> 0.2.0'
 gem 'browser', '~> 2.4.0'
+gem 'wechat'
 
 
 # Front-end
