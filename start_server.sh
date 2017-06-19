@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-nohup foreman start &
+source /usr/local/rvm/scripts/rvm ; cd /root/stories ; nohup ./bin/bundle exec foreman start &
