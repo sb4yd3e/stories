@@ -7,12 +7,12 @@
 </div>
 <script type="text/javascript" >
 var jiathis_config= {
-	url: "<%= post.url %>",
-	summary: "<%= strip_tags post.lead %>",
-	desc: "<%= strip_tags post.lead %>",
-	title:"<%= post.title %> #家长树#",
-	pic: "<%= post.picture? ? post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>",
-	pics: "<%= post.picture? ? post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' %>",
+	url: "<%= post.url -%>",
+	summary: "<%= strip_tags post.lead -%>",
+	desc: "<%= strip_tags post.lead -%>",
+	title:"<%= post.title -%> #家长树#",
+	pic: "<%= post.picture? ? post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' -%>",
+	pics: "<%= post.picture? ? post.picture.url : 'http://www.jiazhangshu.com/jiazhangshu_logo.jpg' -%>",
 	shortUrl:false,
 	hideMore:false
 }
