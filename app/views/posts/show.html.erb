@@ -109,3 +109,4 @@
 </div>
 
 <%= render partial: 'posts/metadata_bar', locals: { post: @post } %>
+<%= wechat_config_js debug: true, api: %w(onMenuShareTimeline onMenuShareQZone) -%>

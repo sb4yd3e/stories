@@ -1,20 +1,19 @@
 default: &default
   appid: "wxff33c9329f34aa94"
   secret: "e3e97b006a1485bc8404b452628b44c6"
-  token:    "my_token"
+  token:    "b716e758a138994a4184f97a9fe9f626f267f277b057509642ef0c0c05bc5d5a"
   access_token: "/tmp/wechat_access_token"
   encrypt_mode: false # if true must fill encoding_aes_key
   jsapi_ticket: "/tmp/wechat_jsapi_ticket"
 
 production:
-  token:      <%= ENV['WECHAT_TOKEN'] %>
+  token:      "b716e758a138994a4184f97a9fe9f626f267f277b057509642ef0c0c05bc5d5a"
   timeout:    30,
   skip_verify_ssl: true
-  access_token:  <%= ENV['WECHAT_ACCESS_TOKEN'] %>
+  access_token:  "/tmp/wechat_access_token"
   encrypt_mode: false # if true must fill encoding_aes_key
-  encoding_aes_key:  <%= ENV['WECHAT_ENCODING_AES_KEY'] %>
-  jsapi_ticket: <%= ENV['WECHAT_JSAPI_TICKET'] %>
-  oauth2_cookie_duration: <%= ENV['WECHAT_OAUTH2_COOKIE_DURATION'] %> # seconds
+  jsapi_ticket: "/tmp/wechat_jsapi_ticket"
+  oauth2_cookie_duration: 3600 # seconds
 
 development:
   <<: *default

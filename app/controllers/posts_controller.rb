@@ -4,6 +4,8 @@ class PostsController < ApplicationController
 
   layout "editor", only: [:new, :edit, :create, :update]
 
+  wechat_api
+  
   def show
     @post = Post.find(params[:id])
     @responses = @post.responses.includes(:user)
