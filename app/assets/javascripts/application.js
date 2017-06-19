@@ -33,4 +33,5 @@
 //= require react_ujs
 //= require components
 //= require init
+//= require jia
 //= require page_specific
