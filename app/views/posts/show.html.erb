@@ -1,4 +1,11 @@
 <%= content_for :desc, strip_tags(@post.lead) %>
+<%= content_for :weibo_meta do %>
+  <meta property="og:type" content="webpage" />
+  <meta property="og:url" content="<%= @post.url %>" />
+  <meta property="og:title" content="<%= @post.title %>" />
+  <meta property="og:description" content="<%= strip_tags(@post.lead) %>" />
+  <meta property="og:image" content="<%= @post.piture? ? @post.picture.url : '' %>" />
+<% end %>
 
 <%= content_for :wechat_img do %>
   <% if @post.picture? %>
