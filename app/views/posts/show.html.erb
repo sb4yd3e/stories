@@ -110,7 +110,7 @@
 
 <%= render partial: 'posts/metadata_bar', locals: { post: @post } %>
 <%= javascript_include_tag '//res.wx.qq.com/open/js/jweixin-1.2.0.js' %>
-<%= wechat_config_js debug: true, api: %w(checkJsApi onMenuShareTimeline onMenuShareQZone) -%>
+<%= wechat_config_js debug: false, api: %w(checkJsApi onMenuShareTimeline onMenuShareQZone) -%>
 <script type="application/javascript">
   wx.onMenuShareTimeline({
     title: "<%= @post.title %> - 家长书",
